@@ -1,0 +1,26 @@
+<%@page import="java.sql.Statement"%>
+<%@page import="java.sql.Connection"%>
+<%@page import="java.sql.DriverManager"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+<%
+	try{
+		Class.forName("oracle.jdbc.OracleDriver"); //jdbc 드라이버가 있는지 확인한다
+		Connection conn = DriverManager.getConnection(//오라클 연결 까지 된거임
+				"jdbc:oracle:thin:@localhost:1521/xepdb1", "tester1", "1234");
+		Statement stmt = conn.createStatement();
+	}catch(Exception e){
+		out.println("연결 실패!");
+	}
+	
+	
+%> <!-- scriptlet 자바 언어 사용가능 -->
+</body>
+</html>

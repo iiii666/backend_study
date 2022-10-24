@@ -1,0 +1,2 @@
+InputSTreamReaderTest 예제
+한글 영어 포함

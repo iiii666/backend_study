@@ -1,0 +1,23 @@
+package codingtest;
+
+import java.io.IOException;
+
+public class Main {
+	public static void main(String[] args) throws NumberFormatException, IOException {
+
+		 Solution s = new Solution();
+		 
+	}
+
+}
+class Solution {
+    public String solution(String s) {
+        String answer = "";
+        StringBuffer sb = new StringBuffer(s);
+        int len = s.length();
+        for(int i = len-1; i>=0;i--){
+            answer += String.valueOf(sb.charAt(i));
+        }
+        return answer;
+    }
+}

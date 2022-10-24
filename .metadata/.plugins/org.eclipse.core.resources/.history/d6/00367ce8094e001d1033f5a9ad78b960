@@ -1,0 +1,26 @@
+package codingtest;
+
+import java.io.IOException;
+import java.util.Arrays;
+
+public class Main {
+	public static void main(String[] args) throws NumberFormatException, IOException {
+
+		 Solution s = new Solution();
+		 System.out.println(s.solution("asdf"));
+	}
+
+}
+class Solution {
+    public boolean solution(String s) {
+        boolean answer = true;
+        
+        try {
+			Integer.parseInt(s);
+			return true;
+		} catch (Exception e) {
+			return false;
+		}
+        
+    }
+}

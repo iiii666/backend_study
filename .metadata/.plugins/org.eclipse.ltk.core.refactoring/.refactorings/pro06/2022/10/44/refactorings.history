@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session version="1.0">
+<refactoring comment="Move package &apos;util.filter&apos; to &apos;pro07/src&apos;&#x0D;&#x0A;- Original project: &apos;pro06&apos;&#x0D;&#x0A;- Destination element: &apos;pro07/src&apos;&#x0D;&#x0A;- Original element: &apos;pro06/src/util.filter&apos;&#x0D;&#x0A;- Update references to refactored element" description="Move package" destination="=pro07/src" element1="/src&lt;util.filter" flags="589830" fragments="1" id="org.eclipse.jdt.ui.move" policy="org.eclipse.jdt.ui.movePackages" stamp="1666588295626" version="1.0"/>
+</session>

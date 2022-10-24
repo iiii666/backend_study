@@ -1,0 +1,53 @@
+package codingtest;
+
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStreamReader;
+
+public class Main {
+	public static void main(String[] args) throws NumberFormatException, IOException {
+		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+		int num = Integer.parseInt(br.readLine());
+		String[] arr = new String[num];
+	
+		for (int i = 0; i < num; i++) {
+			arr[i] = br.readLine();
+		}
+
+	
+		String temp = arr[0];
+		int min = 0; 
+		String tempbox ="";
+		for (int j = 0; j < arr.length -1; j++) {
+			min = j;
+			for(int l = j+1;l<arr.length;l++) {
+				if (arr[min].length() > arr[l].length()) {
+					min = l;
+				} else if (temp.length() == arr[l].length()) {
+					StringBuffer sb = new StringBuffer(temp);
+					StringBuffer sb2 = new StringBuffer(arr[j]);
+					int temp2 = 0;
+					while (temp2 < arr[j].length()) {
+						if ((int) sb.charAt(temp2) > (int) sb2.charAt(temp2)) {
+							tempbox = temp;
+							arr[j] = arr[j + 1];
+							arr[j + 1] = tempbox;
+							break;
+						}
+						temp2++;
+					}
+				}
+				tempbox = arr[min];
+				arr[min] = arr[j];
+				arr[j] = tempbox;
+			}
+			
+		}
+		for(int i =0; i<arr.length;i++) {
+			System.out.println(arr[i]);
+		}
+		
+
+	}
+
+}
