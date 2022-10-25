@@ -17,7 +17,7 @@ import javax.servlet.http.HttpSession;
 /**
  * Servlet implementation class LoginTest
  */
-/*@WebServlet("/login")*/
+@WebServlet("/login")
 public class LoginTest extends HttpServlet {
 	ServletContext context = null;
 	List user_list = new ArrayList();
@@ -31,12 +31,12 @@ public class LoginTest extends HttpServlet {
 		response.setContentType("text/html;charset=utf-8");
 		context = getServletContext();
 		PrintWriter out = response.getWriter();
-		HttpSession session = request.getSession();
+		HttpSession session = request.getSession();//세션정보값가져오고
 		String user_id = request.getParameter("user_id");
 		String user_pw = request.getParameter("user_pw");
 		LoginImpl loginUser = new LoginImpl(user_id, user_pw);
 		if (session.isNew()) {
-			session.setAttribute("loginUser", loginUser);
+			session.setAttribute("loginUser", loginUser);//바인딩 이거잘 모르겠따
 			user_list.add(user_id);
 			context.setAttribute("user_list", user_list);
 		}

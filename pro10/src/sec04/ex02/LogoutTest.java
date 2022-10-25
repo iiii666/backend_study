@@ -16,7 +16,7 @@ import javax.servlet.http.HttpSession;
 /**
  * Servlet implementation class LogoutTest
  */
-/*@WebServlet("/logout")*/
+@WebServlet("/logout")
 public class LogoutTest extends HttpServlet {
 	ServletContext context;
 

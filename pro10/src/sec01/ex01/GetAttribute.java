@@ -14,7 +14,7 @@ import javax.servlet.http.HttpSession;
 /**
  * Servlet implementation class GetAttribute
  */
-/*@WebServlet("/get")*/
+@WebServlet("/get")
 public class GetAttribute extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 

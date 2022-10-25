@@ -4,6 +4,7 @@ import java.io.IOException;
 import java.io.PrintWriter;
 
 import javax.servlet.ServletException;
+import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -12,7 +13,7 @@ import javax.servlet.http.HttpSession;
 /**
  * Servlet implementation class LoginServlet
  */
-//@WebServlet("/login")
+@WebServlet("/login")
 public class LoginServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
@@ -32,7 +33,8 @@ public class LoginServlet extends HttpServlet {
 		
 
 		if (result) {
-			HttpSession session = request.getSession();
+			HttpSession session = request.getSession();//request 에도 세션정보가있다
+			
 			session.setAttribute("isLogon", true);
 			session.setAttribute("login.id", user_id);
 			session.setAttribute("login.pwd", user_pwd);
@@ -41,7 +43,8 @@ public class LoginServlet extends HttpServlet {
 			out.print("안녕하세요 " + user_id + "님!!!<br>");
 			out.print("<a href='show'>회원정보보기</a>");
 			out.print("</body></html>");
-		} else {
+		} else {//틀렸을 때는 세션 처리 안함
+			
 			out.print("<html><body>회원 아이디가 틀립니다.");
 			out.print("<a href='login3.html'> 다시 로그인하기</a>");
 			out.print("</body></html>");

@@ -19,10 +19,10 @@ public class MemberServlet extends HttpServlet {
 	protected void service(HttpServletRequest request,HttpServletResponse response)  throws ServletException, IOException {
 
       response.setContentType("text/html;charset=utf-8");
-      MemberDAO dao=new MemberDAO();
+      MemberDAO dao=new MemberDAO();//db communication
       PrintWriter out=response.getWriter();
-      String command=request.getParameter("command");
-      if(command!= null && command.equals("addMember")){
+      String command=request.getParameter("command");//html communication
+      if(command!= null && command.equals("addMember")){//insert
 		 String _id=request.getParameter("id");
 		 String _pwd=request.getParameter("pwd");
 		 String _name=request.getParameter("name");

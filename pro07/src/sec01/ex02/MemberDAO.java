@@ -9,11 +9,11 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class MemberDAO {
-	
 	private static final String driver = "oracle.jdbc.driver.OracleDriver";
-	private static final String url = "jdbc:oracle:thin:@localhost:1521:XE";
-	private static final String user = "scott";
-	private static final String pwd = "tiger";
+	private static final String url = "jdbc:oracle:thin:@localhost:1521/xepdb1";
+	private static final String user = "tester1";
+	private static final String pwd = "1234";
+
 	
 	private Connection con;
 	private PreparedStatement pstmt;

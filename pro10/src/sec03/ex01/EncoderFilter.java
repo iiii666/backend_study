@@ -9,13 +9,12 @@ import javax.servlet.ServletContext;
 import javax.servlet.ServletException;
 import javax.servlet.ServletRequest;
 import javax.servlet.ServletResponse;
-import javax.servlet.annotation.WebFilter;
 import javax.servlet.http.HttpServletRequest;
 
 /**
  * Servlet Filter implementation class EncoderFilter
  */
-/*@WebFilter("/*")*/
+//@WebFilter("/*")
 public class EncoderFilter implements Filter {
 	ServletContext context;
 

@@ -1,0 +1,45 @@
+package sec02.ex02;
+
+import java.io.IOException;
+import java.io.PrintWriter;
+import java.sql.Date;
+import java.util.List;
+
+import javax.servlet.ServletException;
+import javax.servlet.annotation.WebServlet;
+import javax.servlet.http.HttpServlet;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+
+@WebServlet("/member3")
+public class MemberServlet2 extends HttpServlet {
+
+	
+	@Override
+	protected void service(HttpServletRequest request,HttpServletResponse response)  throws ServletException, IOException {
+		
+		MemberDAO dao = new MemberDAO();
+		
+		
+		response.setContentType("text/html;charset=utf-8");
+		PrintWriter out = response.getWriter();
+		
+		String command = request.getParameter("command");
+		
+		if(command !=null && command.equals("addMember")) {//insert
+			String _id = request.getParameter("id");
+			String _pwd = request.getParameter("pwd");
+			String _name=request.getParameter("name");
+			 String _email=request.getParameter("email");
+			 
+			 MemberVO vo = new MemberVO();
+			 
+			 vo.setId(_id);
+			 vo.setPwd(_pwd);
+			 vo.setName(_name);
+			 vo.setEmail(_email);
+			 
+		}
+		
+	}
+}

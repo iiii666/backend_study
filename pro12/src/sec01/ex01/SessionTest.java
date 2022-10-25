@@ -24,7 +24,7 @@ public class SessionTest extends HttpServlet {
 		response.setContentType("text/html;charset=utf-8");
 		PrintWriter pw = response.getWriter();
 		HttpSession session = request.getSession();
-		session.setAttribute("name", "이순신");
+		session.setAttribute("name", "이순신");//session 이니까 같은 브라우저에서 가능함
 		
 		pw.println("<html><body>");
 		pw.println("<h1>세션에 이름을 바인딩합니다.</h1>");

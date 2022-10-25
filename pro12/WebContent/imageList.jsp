@@ -27,10 +27,10 @@ list-style:none ; border-bottom: 2px solid lightgray;position:relative; }
   for(int i=0 ; i<10; i++){
 %>
 <li>
-      <a href='#' style='margin-left:50px'  >
+      <a href='javascript:;' style='margin-left:50px'  >
 <img src='image/duke.png' width='90' height='90' alt='' /></a>
-      <a href='#' ><strong>이미지 이름: 듀크<%=i %> </strong></a>
-      <a href='#' > <input  name='chk<%=i %>' type='checkbox'  /></a>
+      <a href='javascript:;' ><strong>이미지 이름: 듀크<%=i %> </strong></a>
+      <a href='javascript:;' > <input  name='chk<%=i %>' type='checkbox'  /></a>
 </li>
 <%
   }

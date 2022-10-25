@@ -4,7 +4,6 @@ import java.sql.Connection;
 import java.sql.Date;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
-import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -35,7 +34,7 @@ public class MemberDAO {
 			String query = "select * from t_member ";
 			
 			if((_name!=null && _name.length()!=0)){
-				 query+=" where name=?";
+				 query+=" where name like '%' || ? || '%'";
 				 pstmt = con.prepareStatement(query);
 				 pstmt.setString(1, _name);
 			}else {
