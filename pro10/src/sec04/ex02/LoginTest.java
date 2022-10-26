@@ -7,7 +7,6 @@ import java.util.List;
 
 import javax.servlet.ServletContext;
 import javax.servlet.ServletException;
-import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -17,7 +16,7 @@ import javax.servlet.http.HttpSession;
 /**
  * Servlet implementation class LoginTest
  */
-@WebServlet("/login")
+//@WebServlet("/login")
 public class LoginTest extends HttpServlet {
 	ServletContext context = null;
 	List user_list = new ArrayList();

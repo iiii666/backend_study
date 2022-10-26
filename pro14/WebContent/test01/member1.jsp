@@ -2,11 +2,11 @@
     pageEncoding="UTF-8" 
     isELIgnored="false"  %>
 <%
-   request.setCharacterEncoding("UTF-8");
+   /* request.setCharacterEncoding("UTF-8");
    String id=request.getParameter("id");
    String pwd=request.getParameter("pwd");
    String name= request.getParameter("name");
-   String email= request.getParameter("email");
+   String email= request.getParameter("email"); */
   
 %>   
 <html>
@@ -22,12 +22,12 @@
       <td width="20%" ><b>이름</b></td>
       <td width="20%"><b>이메일</b></td>
    </tr>
-   <tr align=center>
+ <%--   <tr align=center>
       <td><%=id %> </td>
       <td><%=pwd%> </td>
       <td><%=name %> </td>
       <td><%=email %> </td>
-   </tr>   
+   </tr>    --%>
    <tr align=center>
       <td>${param.id } </td>
       <td>${param.pwd } </td>

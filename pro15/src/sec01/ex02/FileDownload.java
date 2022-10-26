@@ -4,6 +4,7 @@ import java.io.File;
 import java.io.FileInputStream;
 import java.io.IOException;
 import java.io.OutputStream;
+import java.net.URLEncoder;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -44,7 +45,7 @@ public class FileDownload extends HttpServlet {
 		String downFile = file_repo + "\\" + fileName;
 		File f = new File(downFile);
 		response.setHeader("Cache-Control", "no-cache");
-		response.addHeader("Content-disposition", "attachment; fileName=" + fileName);
+		response.addHeader("Content-disposition", "attachment; fileName=" + URLEncoder.encode(downFile,"UTF-8"));
 		FileInputStream in = new FileInputStream(f);
 		byte[] buffer = new byte[1024 * 8];
 		while (true) {

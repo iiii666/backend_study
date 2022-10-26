@@ -30,7 +30,7 @@
      <tr align="center">
        <td>${m.id } </td>
        <td>${m.pwd} </td>
-       <td>${m.name }</td>
+       <td>${m.name }</td><!-- 필드명 절대 아니고 , get을 뺀 getter의 이름 -->
        <td>${m.email }</td>
 </tr>
 </table>

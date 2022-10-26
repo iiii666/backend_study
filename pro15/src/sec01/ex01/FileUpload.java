@@ -11,7 +11,6 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import org.apache.commons.fileupload.FileItem;
-import org.apache.commons.fileupload.FileUploadException;
 import org.apache.commons.fileupload.disk.DiskFileItemFactory;
 import org.apache.commons.fileupload.servlet.ServletFileUpload;
 
@@ -26,35 +25,29 @@ public class FileUpload extends HttpServlet {
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse
 	 *      response)
 	 */
-	protected void doGet(HttpServletRequest request, HttpServletResponse response)
-			throws ServletException, IOException {
-		doHandle(request, response);
-	}
-
-	/**
-	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse
-	 *      response)
-	 */
-	protected void doPost(HttpServletRequest request, HttpServletResponse response)
-			throws ServletException, IOException {
-		doHandle(request, response);
-	}
-
-	private void doHandle(HttpServletRequest request, HttpServletResponse response)	throws ServletException, IOException {
-		request.setCharacterEncoding("utf-8");
+	@Override
+	protected void service(HttpServletRequest request, HttpServletResponse response)	throws ServletException, IOException {
+			request.setCharacterEncoding("utf-8");
 			String encoding = "utf-8";
 			File currentDirPath = new File("C:\\file_repo");
+			
+			if(!currentDirPath.exists()) {
+				currentDirPath.mkdir();
+			}
+			
+			
 			DiskFileItemFactory factory = new DiskFileItemFactory();
 			factory.setRepository(currentDirPath);
-			factory.setSizeThreshold(1024 * 1024);
-
+			factory.setSizeThreshold(1024 * 1024 *20);
+			
 			ServletFileUpload upload = new ServletFileUpload(factory);
 			try {
+				//파일2개와 파라미터 1,2,3 다 list로 받는다
 				List items = upload.parseRequest(request);
 				for (int i = 0; i < items.size(); i++) {
 					FileItem fileItem = (FileItem) items.get(i);
 	
-					if (fileItem.isFormField()) {
+					if (fileItem.isFormField()) {//isFormField() 
 						System.out.println(fileItem.getFieldName() + "=" + fileItem.getString(encoding));
 					} else {
 						System.out.println("파라미터명:" + fileItem.getFieldName());

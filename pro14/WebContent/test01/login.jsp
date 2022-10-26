@@ -17,6 +17,6 @@ isELIgnored="false"  %>
   <!--  <a href="http://localhost:8090/pro14/test01/memberForm.jsp">회원가입하기</a> -->
     <%--   <a href="<%=request.getContextPath() %>/test01/memberForm.jsp">회원가입하기</a>  --%>
    <a href="${pageContext.request.contextPath}/test01/memberForm.jsp">회원가입하기</a>
-   
+   <!-- package 가르친다고 생각하자 -->
 </body>
 </html>
