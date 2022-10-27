@@ -8,8 +8,8 @@
       function fn_process(){
         $.ajax({
             type:"post",
-            async:false, 
-            url:"http://localhost:8090/pro16/ajaxTest2",
+            async:true, 
+            url:"http://localhost/pro16/ajaxTest2",
             dataType:"xml",
             success:function (info,textStatus){
               $(info).find("book").each(function(){  

@@ -6,8 +6,9 @@
 		<item key="wholeword" value="false"/>
 		<item key="incremental" value="false"/>
 		<item key="isRegEx" value="false"/>
-		<item key="selection" value=""/>
+		<item key="selection" value="addMember"/>
 		<list key="findhistory">
+			<item value="addMember"/>
 			<item value="value"/>
 			<item value="session-tim"/>
 			<item value="delmemb"/>
@@ -42,5 +43,9 @@
 		<item key="DIALOG_WIDTH" value="1203"/>
 		<item key="DIALOG_HEIGHT" value="762"/>
 		<item key="DIALOG_FONT_NAME" value="1|맑은 고딕|9.0|0|WINDOWS|1|-18|0|0|0|400|0|0|0|1|0|0|0|0|맑은 고딕"/>
+	</section>
+	<section name="org.eclipse.ui.texteditor.GotoLineAction$GotoLineDialog_dialogBounds">
+		<item key="DIALOG_X_ORIGIN" value="966"/>
+		<item key="DIALOG_Y_ORIGIN" value="574"/>
 	</section>
 </section>

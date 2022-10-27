@@ -9,9 +9,9 @@
        $.ajax({
          type:"get",
          dataType:"text",
-         async:false,  
-         url:"http://localhost:8090/pro16/ajaxTest1",
-         data: {param:"Hello,jquery"},
+         async:true, //비동기화 만약 동기화면 submit을하고 멈칫현상을볼수도있다 
+         url:"http://localhost/pro16/ajaxTest1",
+         data: {param:"Hello,jquery"},//http://localhost:8090/pro16/ajaxTest1?param=Hello,jquery
          success:function (data,textStatus){
             $('#message').append(data);
          },

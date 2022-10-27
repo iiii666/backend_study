@@ -13,7 +13,6 @@
         $("#checkJson").click(function() {
     	$.ajax({
             type:"post",
-            async:false, 
             url:"${contextPath}/json2",
             success:function (data,textStatus){
             	var jsonInfo = JSON.parse(data);

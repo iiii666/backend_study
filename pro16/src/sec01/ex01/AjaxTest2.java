@@ -40,12 +40,12 @@ public class AjaxTest2 extends HttpServlet {
 		result="<main><book>"+
 		         "<title><![CDATA[초보자를 위한 자바 프로그래밍]]></title>" +
 		         "<writer><![CDATA[인포북스 저 | 이병승]]></writer>" +                             
-		         "<image><![CDATA[http://localhost:8090/pro16/image/image1.jpg]]></image>"+
+		         "<image><![CDATA[http://localhost/pro16/image/image1.jpg]]></image>"+
 		      "</book>"+
 		      "<book>"+
 		         "<title><![CDATA[모두의 파이썬]]></title>" +
 		         "<writer><![CDATA[길벗 저 | 이승찬]]></writer>" +                 
-		        "<image><![CDATA[http://localhost:8090/pro16/image/image2.jpg]]></image>"+
+		        "<image><![CDATA[http://localhost/pro16/image/image2.jpg]]></image>"+
 		      "</book></main>";
 		System.out.println(result);
 		writer.print(result);
