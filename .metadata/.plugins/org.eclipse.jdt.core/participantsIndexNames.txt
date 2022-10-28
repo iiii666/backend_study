@@ -55,10 +55,12 @@ C:\dev64\workspace\.metadata\.plugins\org.eclipse.jst.jsp.core\jspsearch\8607567
 \pro14\src
 C:\dev64\workspace\.metadata\.plugins\org.eclipse.jst.jsp.core\jspsearch\1721185863.index
 \pro17_original\src
-C:\dev64\workspace\.metadata\.plugins\org.eclipse.jst.jsp.core\jspsearch\3821100704.index
-\pro15\src
 C:\dev64\workspace\.metadata\.plugins\org.eclipse.jst.jsp.core\jspsearch\4288571389.index
 \pro17_original\src
+C:\dev64\workspace\.metadata\.plugins\org.eclipse.jst.jsp.core\jspsearch\3821100704.index
+\pro15\src
+C:\dev64\workspace\.metadata\.plugins\org.eclipse.jst.jsp.core\jspsearch\427149370.index
+\pro17\src\main\java
 C:\dev64\workspace\.metadata\.plugins\org.eclipse.jst.jsp.core\jspsearch\2856799067.index
 \pro14\src
 C:\dev64\workspace\.metadata\.plugins\org.eclipse.jst.jsp.core\jspsearch\2059931418.index
