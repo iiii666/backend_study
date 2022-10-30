@@ -22,13 +22,12 @@ public class main4 {
 		int th = Integer.parseInt(st.nextToken());
 		String s = br.readLine();
 		String[] arr = s.split(" ");
-		Printer[] pt = new Printer();
+		Printer[] pt = new Printer[4] ;
 		Queue<HashMap<Integer, Integer>> q = new LinkedList<>();
 		for (int i = 0; i < size; i++) {
 			
-			m.put(i, Integer.parseInt(arr[i]));
-			q.add(m);
-			 m = new HashMap<>();
+			
+			 pt[i] = new Printer(i, Integer.parseInt(arr[i]));
 		}
 		List<Integer> temp = new ArrayList<>();
 		int temp2 =0;
@@ -48,10 +47,11 @@ public class main4 {
 		
 
 	}
-	public class printer{
+	class Printer{
 		int i;
 		int prior;
-		public printer(int i, int prior){
+		
+		public Printer(int i, int prior){
 			this.i=i;
 			this.prior =prior;
 			

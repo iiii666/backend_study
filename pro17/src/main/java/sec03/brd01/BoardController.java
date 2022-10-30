@@ -1,8 +1,11 @@
 package sec03.brd01;
 
+import java.io.File;
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
@@ -11,17 +14,24 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import org.apache.commons.fileupload.FileItem;
+import org.apache.commons.fileupload.disk.DiskFileItemFactory;
+import org.apache.commons.fileupload.servlet.ServletFileUpload;
+
 /**
  * Servlet implementation class BoardController
  */
 @WebServlet("/board/*")
 public class BoardController extends HttpServlet {
 	private static final long serialVersionUID = 1L;
-       
+    private static String ARTICLE_IAMGE_REPO = "C:\\dev64\\workspace\\pro17\\src\\main\\webapp\\board01";
 	BoardService boardService;
+	ArticleVO articleVO;
+	
 	@Override
 	public void init() throws ServletException {
 		boardService = new BoardService();
+		articleVO = new ArticleVO();
 	}
    @Override
 	protected void service(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
@@ -36,17 +46,33 @@ public class BoardController extends HttpServlet {
 				articlesList = boardService.listArticles();
 				request.setAttribute("articlesList", articlesList);
 				nextPage = "/board01/listArticles.jsp";
-				System.out.println(1);
+			
 			} else if (action.equals("/listArticles.do")) {
 				articlesList = boardService.listArticles();
 				request.setAttribute("articlesList", articlesList);
 				nextPage = "/board01/listArticles.jsp";
-				System.out.println(2);
-			}else {
-				articlesList = boardService.listArticles();
-				request.setAttribute("articlesList", articlesList);
+			
+			}else if(action.equals("/articleForm.do")){
+				nextPage = "/board01/articleForm.jsp";
+			}else if(action.equals("/addArticle.do")) {
+				Map<String, String> articleMap = upload(request, response);
+				String title = articleMap.get("title");
+				String content = articleMap.get("content");
+				String imageFileName = articleMap.get("imageFileName");
+				
+				articleVO.setParentNO(0);
+				articleVO.setId("hong");
+				articleVO.setTitle(title);
+				articleVO.setContent(content);
+				articleVO.setImageFileName(imageFileName);
+				nextPage = "/board/listArticles.do";
+			}
+			
+			
+			else {
+				
 				nextPage = "/board01/listArticles.jsp";
-				System.out.println(3);
+	
 			}
 			
 			RequestDispatcher dispatch = request.getRequestDispatcher(nextPage);
@@ -55,5 +81,47 @@ public class BoardController extends HttpServlet {
 			e.printStackTrace();
 		}
 	}
+   
+   
+   
+   
+   
+   private Map<String, String> upload(HttpServletRequest request, HttpServletResponse reponse){
+	   Map<String,String> articleMap = new HashMap<>();
+	   File currentDirPath = new File(ARTICLE_IAMGE_REPO);
+	   DiskFileItemFactory factory = new DiskFileItemFactory();
+	   String encoding = "UTF-8";
+	   factory.setRepository(currentDirPath);
+	   factory.setSizeThreshold(1024 *1024);
+	   ServletFileUpload upload= new ServletFileUpload(factory);
+	   
+	   try {
+		   List items = upload.parseRequest(request);
+		   for(int i = 0;i<items.size();i++) {
+			   FileItem fileItem = (FileItem) items.get(i);
+			   if(fileItem.isFormField()) {
+				   System.out.println(fileItem.getFieldName() + "=" + fileItem.getString(encoding));
+					articleMap.put(fileItem.getFieldName(), fileItem.getString(encoding));
+			   }else {
+				   if(fileItem.getSize()>0){
+					   int idx = fileItem.getName().lastIndexOf("\\");
+					   if(idx ==-1) {
+						   idx = fileItem.getName().lastIndexOf("/");
+					   }
+					   String fileName = fileItem.getName().substring(idx + 1);
+						System.out.println("파일명:" + fileName);
+						articleMap.put(fileItem.getFieldName(), fileName);  //익스플로러에서 업로드 파일의 경로 제거 후 map에 파일명 저장
+						File uploadFile = new File(currentDirPath + "\\" + fileName);
+						fileItem.write(uploadFile);
+				   }
+			   }
+			   
+			   
+		   }
+	   }catch(Exception e) {
+		   
+	   }
+	   return articleMap;
+   }
 
 }
